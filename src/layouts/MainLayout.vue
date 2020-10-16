@@ -1,20 +1,44 @@
 <template>
+<<<<<<< HEAD
    <q-layout view="hHh Lpr lff" class="shadow-2 rounded-borders">
       <q-header elevated style="background: #371F80;">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="notes" />
+=======
+  <q-layout view="lHh Lpr lFf">
+    <q-header style="background: #4527a0" elevated>
+      <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="leftDrawerOpen = !leftDrawerOpen"
+        />
+
+>>>>>>> d7079929f9274f64db3dfd86d49448137098a3be
         <q-toolbar-title>
           <div class="logoo"></div>
         </q-toolbar-title>
 
         <div class="right">
+<<<<<<< HEAD
       <q-btn flat round dense class="alerts" @click="showNotif"></q-btn>
       <div class="usericon"></div>
       <div class="q-pa-md">Joey Rafael</div>
+=======
+      <div>5 créditos</div>
+      <div class="alerts"></div>
+      <div class="usericon"></div>
+      <div>Flávia Branco</div>
+      <div class="toggleright"></div>
+>>>>>>> d7079929f9274f64db3dfd86d49448137098a3be
     </div>
       </q-toolbar>
     </q-header>
 
+<<<<<<< HEAD
           <q-drawer
         v-model="drawer"
         show-if-above
@@ -95,6 +119,28 @@
           </q-list>
         </q-scroll-area>
       </q-drawer>
+=======
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      content-class="bg-grey-1"
+    >
+      <q-list>
+        <q-item-label
+          header
+          class="text-grey-8"
+        >
+          Essential Links
+        </q-item-label>
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
+    </q-drawer>
+>>>>>>> d7079929f9274f64db3dfd86d49448137098a3be
 
     <q-page-container>
       <router-view />
@@ -103,6 +149,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
   data () {
     return {
@@ -116,6 +163,40 @@ export default {
         color: 'deep-purple-13',
         multiLine: true
       })
+=======
+import EssentialLink from 'components/EssentialLink.vue'
+
+const linksData = [
+  {
+    title: 'Dashboard',
+    icon: 'home'
+  },
+  {
+    title: 'Redação',
+    icon: 'format_align_left'
+  },
+  {
+    title: 'Revisão',
+    icon: 'image_search'
+  },
+  {
+    title: 'Design',
+    icon: 'brush'
+  },
+  {
+    title: 'Sair',
+    icon: 'exit_to_app'
+  }
+]
+
+export default {
+  name: 'MainLayout',
+  components: { EssentialLink },
+  data () {
+    return {
+      leftDrawerOpen: false,
+      essentialLinks: linksData
+>>>>>>> d7079929f9274f64db3dfd86d49448137098a3be
     }
   }
 }
